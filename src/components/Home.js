@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBar from "./Search_Bar";
 import List from "./List";
+import Detail from "./Detail";
 
 class Home extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class Home extends React.Component {
         <SearchBar />
         <hr />
         <div className="col-md-12">
+          <Detail />
           <List />
         </div>
       </div>

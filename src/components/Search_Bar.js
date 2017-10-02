@@ -9,9 +9,6 @@ class SearchBar extends React.Component {
       value: ""
     };
   }
-  // componentDidMount() {
-  //   this.props.dispatch(fetchTube(this.state.value));
-  // }
 
   handleChange(event) {
     this.setState({
