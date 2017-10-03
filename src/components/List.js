@@ -1,31 +1,22 @@
 import React from "react";
-import { fetchTube } from "../actions/searchAction";
-import { connect } from "react-redux";
+import Item from "./Item";
 
-class List extends React.Component {
-  render() {
-    return (
-      <div className="col-md-3 float-right">
-        {this.props.videos ? (
-          this.props.videos.map((node, index) => (
-            <a href="#" className="card" key={index}>
-              <img
-                className="card-img-top"
-                src={node.snippet.thumbnails.default.url}
+const List = props => {
+  return (
+    <ul className="media-list text-center">
+      {props.videos
+        ? props.videos.map(video => {
+            return (
+              <Item
+                onVideoSelect={props.onVideoSelect}
+                video={video}
+                key={video.etag}
               />
-              <p className="card-title">{node.snippet.title}</p>
-            </a>
-          ))
-        ) : (
-          ""
-        )}
-      </div>
-    );
-  }
-}
+            );
+          })
+        : ""}
+    </ul>
+  );
+};
 
-const mapStateToProps = state => ({
-  videos: state.videos.all
-});
-
-export default connect(mapStateToProps)(List);
+export default List;
